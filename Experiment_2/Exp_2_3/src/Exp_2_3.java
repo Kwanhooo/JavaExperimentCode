@@ -8,6 +8,8 @@ public class Exp_2_3 {
         int temp;
         int index = 0;
 
+        System.out.println("请输入10个数，以下将不重复地显示输入的数：");
+        //输入至数组
         for (int i = 0; i < 10; i++) {
             temp = input.nextInt();
             if (index == 0) {
@@ -16,7 +18,7 @@ public class Exp_2_3 {
                 continue;
             }
             boolean isSame = false;
-            for (int j = 0; j <= index; j++) {
+            for (int j = 0; j < index; j++) {
                 if (list[j] == temp) {
                     isSame = true;
                     break;
@@ -27,6 +29,7 @@ public class Exp_2_3 {
                 index++;
             }
         }
+        System.out.println("结果如下：");
         for (int i = 0; i < index; i++) {
             System.out.print(list[i] + "\t");
         }

@@ -6,36 +6,48 @@ public class Exp_2_1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+        System.out.println("==============================================");
+        System.out.println("请输入数字，以'0'结束输入。以下将统计各数字的出现次数：");
+        System.out.println("==============================================");
         byte[] list = new byte[1000];
         int listSize = 0;
+
+        //将数字输入到数组
         for (int i = 0; ; i++) {
-            byte temp;
-            temp = input.nextByte();
-            if (temp != 0) {
-                list[i] = temp;
+            int temp;
+            temp = input.nextInt();
+            if (i == 0 && temp == 0) {
+                System.out.println("没有执行输入操作，未进行统计");
+                return;
+            } else if (temp == 0)
+                break;
+            if (temp >= 0 && temp <= 100) {
+                list[i] = (byte) temp;
                 listSize++;
-            } else break;
+            }
+            else{
+                System.out.println("请输入1-100之间的数字！超出范围的数字未统计！");
+                i--;
+            }
         }
 
-        //sort
+        //对数组进行排序
         boolean changed = true;
-        byte temp;
+        int temp;
         do {
             changed = false;
             for (int j = 0; j < listSize - 1; j++)
                 if (list[j] > list[j + 1]) {
                     temp = list[j];
                     list[j] = list[j + 1];
-                    list[j + 1] = temp;
+                    list[j + 1] = (byte) temp;
                     changed = true;
                 }
         } while (changed);
 
         int i = 0;
         int appearTimes = 1;
-        while (true) {
-            if (i == listSize)
-                break;
+        while (i != listSize) {
             if (list[i] == list[i + 1]) {
                 appearTimes++;
             } else {

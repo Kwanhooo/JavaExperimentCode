@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class GeometricObject {
-    private final String color;
+    private String color;
     private final boolean isFilled;
     private final Date dateCreated;
 
@@ -73,7 +73,7 @@ class Triangle extends GeometricObject {
     @Override
     public String toString() {
         return "Triangle{" +
-                "color='" + getColor() + '\'' +
+                "color='" + super.color + '\'' +
                 ", isFilled=" + isFilled() +
                 ", dateCreated=" + getDateCreated() +
                 ", side1=" + side1 +

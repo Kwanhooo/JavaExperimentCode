@@ -22,6 +22,14 @@ public class MyStack<DataType> extends ArrayList<DataType> {
             return null;
     }
 
+    public DataType getTop(){
+        return this.arrayList.get(elemAmount-1);
+    }
+
+    public void clearStack(){
+        this.arrayList.clear();
+    }
+
     public boolean isEmpty() {
         return arrayList.size() == 0;
     }

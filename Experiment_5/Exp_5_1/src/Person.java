@@ -25,6 +25,18 @@ class MyDate {
         this.mm = mm;
         this.dd = dd;
     }
+
+    public int getYy() {
+        return yy;
+    }
+
+    public int getMm() {
+        return mm;
+    }
+
+    public int getDd() {
+        return dd;
+    }
 }
 
 class Student extends Person {
@@ -55,10 +67,12 @@ class Student extends Person {
 
 class Employee extends Person {
     private final MyDate employTime;
+    private final double salary;
 
-    Employee(String name, String tel, int yy, int mm, int dd) {
+    Employee(String name, String tel, double salary, int yy, int mm, int dd) {
         super(name, tel);
         this.employTime = new MyDate(yy, mm, dd);
+        this.salary = salary;
     }
 
     @Override
@@ -66,7 +80,8 @@ class Employee extends Person {
         return "Employee类：" +
                 "名字为" + name + " " +
                 ", 电话为" + tel + " " +
-                ", 受聘日期" + employTime;
+                ", 受聘日期为" + employTime.getYy() + "年" + employTime.getMm() + "月" + employTime.getDd() + "日" +
+                ", 工资为" + salary + " ";
     }
 
     public void displayObject() {
@@ -95,9 +110,15 @@ class Test {
     public static void main(String[] args) {
         Person p1 = new Person("张三", "+86 123-4567-8910");
         Person p2 = new Student("李四", "+25 17-8910", Student.FRESHMAN);
-        Person p3 = new Employee("王五", "+11 167-89-10", 2021, 5, 18);
+        Person p3 = new Employee("王五", "+11 167-89-10", 300000, 2021, 5, 18);
         m1(p1);
+        m1(p2);
+        m1(p3);
+        m2(p1);
         m2(p2);
+        m2(p3);
+        m3(p1);
+        m3(p2);
         m3(p3);
     }
 }

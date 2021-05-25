@@ -1,11 +1,8 @@
-import java.util.Scanner;
-
-public class Exp_6_3 {
+public class Exp_6_3_b {
     //method_3
     public static int method_3(int index) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("method_3中打印的信息：请输入一个整数：");
-        int i = input.nextInt();
+        String s = "2.333";
+        int i = Integer.parseInt(s);
         return i;
     }
 
